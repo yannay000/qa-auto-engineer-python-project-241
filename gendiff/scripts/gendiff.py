@@ -1,5 +1,15 @@
 import argparse
+import json
 
+
+def read_json(file_name: str):
+	path = f"files/{file_name}"
+	try:
+		result = json.load(open(path))
+	except FileNotFoundError:
+		return f"Couldn't find file with this path {path}"
+	return result
+    
 
 def main():
     parser = argparse.ArgumentParser(
@@ -14,4 +24,7 @@ def main():
         default="json",
         help="set format of output"
 	)
-    parser.parse_args()
+    args = parser.parse_args()
+    if args.format == "json":
+        print(read_json(args.first_file))
+        print(read_json(args.second_file))

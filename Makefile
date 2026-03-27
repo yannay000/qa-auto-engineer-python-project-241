@@ -2,7 +2,7 @@ install:
 	uv sync
 
 run:
-	uv run gendiff 1 2
+	uv run gendiff file1.json file2.json
 
 help:
 	uv run gendiff -h
