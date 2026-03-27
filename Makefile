@@ -1,8 +1,11 @@
 install:
 	uv sync
 
-gendiff:
+run:
 	uv run gendiff 1 2
+
+help:
+	uv run gendiff -h
 
 lint:
 	uv run ruff check --fix gendiff
