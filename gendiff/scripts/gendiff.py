@@ -1,14 +1,6 @@
 import argparse
-import json
 
-
-def read_json(file_name: str):
-	path = f"files/{file_name}"
-	try:
-		result = json.load(open(path))
-	except FileNotFoundError:
-		return f"Couldn't find file with this path {path}"
-	return result
+from gendiff.scripts.parser import generate_diff
 
 
 def pars_args():
@@ -22,40 +14,29 @@ def pars_args():
         "--format",
         type=str,
         default="json",
-        help="set format of output"
+        help="set format of intput"
 	)
+    parser.add_argument(
+        "-s",
+        "--style",
+        type=str,
+        default="stylish",
+        help="set format of output"
+    )
     args = parser.parse_args()
-    return args
-
-
-def generate_diff(file_path1: str, file_path2: str):
-    first_dict = read_json(file_path1)
-    second_dict = read_json(file_path2)
-    res = "{\n"
-    for key, value in first_dict.items():
-        if not second_dict.get(key):
-            res += f"  - {key}: {value}\n"
-    for key, value in second_dict.items():
-        if value_2 := first_dict.get(key):
-            if value == value_2:
-                res += f"    {key}: {value}\n"
-            else:
-                res += f"  - {key}: {value_2}\n"
-                res += f"  + {key}: {value}\n"
-        else:
-            res += f"  + {key}: {value}\n"
-    # for key, value in second_dict.items():
-    #     if not first_dict.get(key):
-    #         res += f"  + {key}: {value}\n"
-    res += "}"
-    # print(res)
-    return res
+    if args.first_file.endswith(
+        args.format) and args.second_file.endswith(args.format):
+        return args
+    else:
+        return
 
 
 def main():
     args = pars_args()
-    if args.format == "json":
-        generate_diff(args.first_file, args.second_file)
-    # if args.format == "json":
-    #     first_dict = read_json(args.first_file)
-    #     second_dict = read_json(args.second_file)
+    if args:
+        result = generate_diff(
+            args.first_file, args.second_file, style=args.style
+        )
+        print(result)
+    else:
+        print("Incorrect file extension")

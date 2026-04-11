@@ -37,3 +37,6 @@ make build
 
 ### Generate diff
 ![Demo](svg/generate_diff.svg)
+
+### Yml
+![Demo](svg/yml.svg)
