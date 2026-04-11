@@ -10,6 +10,7 @@ def read_json(file_name: str):
 		return f"Couldn't find file with this path {path}"
 	return result
 
+
 def pars_args():
     parser = argparse.ArgumentParser(
         description="Compares two configuration files and shows a difference."
@@ -26,6 +27,7 @@ def pars_args():
     args = parser.parse_args()
     return args
 
+
 def generate_diff(file_path1: str, file_path2: str):
     first_dict = read_json(file_path1)
     second_dict = read_json(file_path2)
@@ -34,7 +36,7 @@ def generate_diff(file_path1: str, file_path2: str):
         if not second_dict.get(key):
             res += f"  - {key}: {value}\n"
     for key, value in second_dict.items():
-        if value_2:= first_dict.get(key):
+        if value_2 := first_dict.get(key):
             if value == value_2:
                 res += f"    {key}: {value}\n"
             else:
