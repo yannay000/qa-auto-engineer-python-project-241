@@ -34,3 +34,6 @@ This project was built using these tools:
 make install
 make build
 ```
+
+### Generate diff
+![Demo](svg/generate_diff.svg)
