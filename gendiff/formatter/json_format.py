@@ -7,5 +7,6 @@ def get_json(first_dict: dict, second_dict: dict) -> str:
 		elif isinstance(value, str):
 			value = f'"{value}"'
 		res += f'  "{key}": {value},\n'
-	res += "}"
+	res = res.rstrip(",\n")
+	res += "\n}"
 	return res

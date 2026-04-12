@@ -17,6 +17,6 @@ def get_stylish(first_dict: dict, second_dict: dict) -> str:
 		else:
 			res_dict[key] = f"  + {key}: {value}\n"
 	for key, value in dict(sorted(res_dict.items())).items():
-	    res += value
+		res += value
 	res += "}"
 	return res

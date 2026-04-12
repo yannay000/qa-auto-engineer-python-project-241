@@ -17,5 +17,5 @@ json_string ="""{
   "timeout": 20,
   "proxy": "123.234.53.22",
   "follow": false,
-  "verbose": true,
+  "verbose": true
 }"""
