@@ -24,10 +24,9 @@ def pars_args(args=None):
         help="set format of output"
     )
     args = parser.parse_args(args)
-    print(args.first_file)
-    print(args.extension)
-    if args.first_file.endswith(
-        args.extension) and args.second_file.endswith(args.extension):
+    ext_1 = args.first_file.split(".")[1]
+    ext_2 = args.second_file.split(".")[1]
+    if ext_1 == ext_2 and ext_1 in ["json", "yml"]:
         return args
     else:
         return
