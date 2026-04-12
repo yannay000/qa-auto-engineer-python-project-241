@@ -8,21 +8,19 @@ from gendiff.formatter.stylish import get_stylish
 
 
 def read_json(file_name: str):
-	path = f"files/{file_name}"
 	try:
-		result = json.load(open(path))
+		result = json.load(open(file_name))
 	except FileNotFoundError:
-		return f"Couldn't find file with this path {path}"
+		return f"Couldn't find file with this path: {file_name}"
 	return result
 
 
 def read_yml(file_name: str):
-	path = f"files/{file_name}"
 	try:
-		with open(path, 'r') as file:
+		with open(file_name, 'r') as file:
 			result = yaml.safe_load(file)
 	except FileNotFoundError:
-		return f"Couldn't find file with this path {path}"
+		return f"Couldn't find file with this path: {file_name}"
 	return result
 
 
