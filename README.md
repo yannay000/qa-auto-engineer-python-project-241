@@ -43,3 +43,6 @@ make build
 
 ### Plain
 ![Demo](svg/plain.svg)
+
+### Json
+![Demo](svg/json.svg)

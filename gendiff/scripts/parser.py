@@ -2,6 +2,7 @@ import json
 
 import yaml
 
+from gendiff.formatter.json_format import get_json
 from gendiff.formatter.plain import get_plain
 from gendiff.formatter.stylish import get_stylish
 
@@ -30,6 +31,8 @@ def generate_result(first_dict: dict, second_dict: dict, format: str) -> str:
 		return get_stylish(first_dict, second_dict)
 	elif format == "plain":
 		return get_plain(first_dict, second_dict)
+	elif format == "json":
+		return get_json(first_dict, second_dict)
 	else:
 		return f"Unknown output format: {format}"
 

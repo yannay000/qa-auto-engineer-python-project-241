@@ -1,5 +1,5 @@
 from gendiff import generate_diff
-from tests.test_data.result_string import stylish_string, plain_string
+from tests.test_data.result_string import stylish_string, plain_string, json_string
 
 def test_yml_stylish():
 
@@ -10,3 +10,8 @@ def test_yml_plain():
 
     diff = generate_diff("file1.yml", "file2.yml", format="plain")
     assert diff == plain_string, f"Incorrect result {diff} != expected result {plain_string}"
+
+def test_yml_json():
+
+    diff = generate_diff("file1.yml", "file2.yml", format="json")
+    assert diff == json_string, f"Incorrect result {diff} != expected result {json_string}"

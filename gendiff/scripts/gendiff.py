@@ -3,7 +3,7 @@ import argparse
 from gendiff.scripts.parser import generate_diff
 
 
-def pars_args():
+def pars_args(args=None):
     parser = argparse.ArgumentParser(
         description="Compares two configuration files and shows a difference."
     )
@@ -23,7 +23,7 @@ def pars_args():
         default="stylish",
         help="set format of output"
     )
-    args = parser.parse_args()
+    args = parser.parse_args(args)
     if args.first_file.endswith(
         args.extension) and args.second_file.endswith(args.extension):
         return args

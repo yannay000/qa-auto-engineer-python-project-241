@@ -1,5 +1,5 @@
 from gendiff import generate_diff
-from tests.test_data.result_string import stylish_string, plain_string
+from tests.test_data.result_string import stylish_string, plain_string, json_string
 
 def test_json_stylish():
 
@@ -10,3 +10,8 @@ def test_json_plain():
 
     diff = generate_diff("file1.json", "file2.json", format="plain")
     assert diff == plain_string, f"Incorrect result {diff} != expected result {plain_string}"
+
+def test_json_json():
+
+    diff = generate_diff("file1.json", "file2.json", format="json")
+    assert diff == json_string, f"Incorrect result {diff} != expected result {json_string}"

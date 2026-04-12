@@ -12,3 +12,11 @@ Property 'follow' was removed
 Property 'timeout' was updated. From 50 to 20
 Property 'verbose' was added with value: true
 """
+
+json_string ="""{
+  "host": "hexlet.io",
+  "timeout": 20,
+  "proxy": "123.234.53.22",
+  "follow": false,
+  "verbose": true,
+}"""
