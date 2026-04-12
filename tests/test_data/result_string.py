@@ -1,4 +1,4 @@
-stylish_string ="""{
+stylish_string = """{
   - follow: false
     host: hexlet.io
   - proxy: 123.234.53.22
@@ -7,12 +7,12 @@ stylish_string ="""{
   + verbose: true
 }"""
 
-plain_string ="""Property 'follow' was removed
+plain_string = """Property 'follow' was removed
 Property 'proxy' was removed
 Property 'timeout' was updated. From 50 to 20
 Property 'verbose' was added with value: true"""
 
-json_string ="""{
+json_string = """{
   "host": "hexlet.io",
   "timeout": 20,
   "proxy": "123.234.53.22",

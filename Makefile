@@ -14,7 +14,7 @@ help:
 	uv run gendiff -h
 
 lint:
-	uv run ruff check --fix gendiff
+	uv run ruff check --fix gendiff tests
 
 check: test lint
 
