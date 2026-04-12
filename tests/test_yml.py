@@ -1,7 +1,12 @@
 from gendiff import generate_diff
-from tests.test_data.result_string import default_string
+from tests.test_data.result_string import stylish_string, plain_string
 
-def test_yml():
+def test_yml_stylish():
 
     diff = generate_diff("file1.yml", "file2.yml")
-    assert diff == default_string, f"Incorrect result {diff} != expected result {default_string}"
+    assert diff == stylish_string, f"Incorrect result {diff} != expected result {stylish_string}"
+
+def test_yml_plain():
+
+    diff = generate_diff("file1.yml", "file2.yml", format="plain")
+    assert diff == plain_string, f"Incorrect result {diff} != expected result {plain_string}"

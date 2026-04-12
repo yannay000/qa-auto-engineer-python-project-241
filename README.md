@@ -40,3 +40,6 @@ make build
 
 ### Yml
 ![Demo](svg/yml.svg)
+
+### Plain
+![Demo](svg/plain.svg)

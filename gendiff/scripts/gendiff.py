@@ -10,22 +10,22 @@ def pars_args():
     parser.add_argument("first_file", type=str, help="first file name")
     parser.add_argument("second_file", type=str, help="second file name")
     parser.add_argument(
-        "-f",
-        "--format",
+        "-e",
+        "--extension",
         type=str,
         default="json",
-        help="set format of intput"
+        help="set format of the input file"
 	)
     parser.add_argument(
-        "-s",
-        "--style",
+        "-f",
+        "--format",
         type=str,
         default="stylish",
         help="set format of output"
     )
     args = parser.parse_args()
     if args.first_file.endswith(
-        args.format) and args.second_file.endswith(args.format):
+        args.extension) and args.second_file.endswith(args.extension):
         return args
     else:
         return
@@ -35,7 +35,7 @@ def main():
     args = pars_args()
     if args:
         result = generate_diff(
-            args.first_file, args.second_file, style=args.style
+            args.first_file, args.second_file, format=args.format
         )
         print(result)
     else:
