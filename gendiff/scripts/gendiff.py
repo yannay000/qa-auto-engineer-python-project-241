@@ -24,6 +24,8 @@ def pars_args(args=None):
         help="set format of output"
     )
     args = parser.parse_args(args)
+    print(args.first_file)
+    print(args.extension)
     if args.first_file.endswith(
         args.extension) and args.second_file.endswith(args.extension):
         return args
